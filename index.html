@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Государственные символы РФ</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;font-family:Arial,sans-serif;
+ background:linear-gradient(135deg,#101d3b,#243f70);
+ color:white;min-height:100vh;padding:25px 15px;
+}
+.container{
+ max-width:750px;margin:auto;
+ background:#ffffff12;padding:30px;
+ border:1px solid #ffffff30;border-radius:20px;
+ box-shadow:0 10px 40px #0005;
+}
+.flag{display:flex;height:9px;border-radius:10px;overflow:hidden;margin-bottom:25px}
+.flag span{flex:1}
+h1{text-align:center;font-size:30px}
+.subtitle{text-align:center;color:#d5e1fa;line-height:1.6}
+.info{background:#ffffff12;padding:15px;border-radius:12px;margin:20px 0}
+.progress{height:9px;background:#ffffff30;border-radius:10px;margin:15px 0}
+.bar{height:100%;width:0;background:#fff;border-radius:10px;transition:.3s}
+.question{font-size:21px;font-weight:bold;margin:25px 0}
+.answers{display:grid;gap:12px}
+.answer{
+ background:#ffffff12;border:1px solid #ffffff35;
+ padding:15px;border-radius:12px;color:white;
+ text-align:left;font-size:16px;cursor:pointer;
+}
+.answer:hover{background:#ffffff30}
+.answer:disabled{cursor:default;opacity:1}
+.correct{background:#187b48!important;border-color:#35d98b}
+.wrong{background:#a83245!important;border-color:#ff7185}
+button.next{
+ background:white;color:#182e53;border:0;
+ padding:14px 25px;border-radius:12px;
+ font-size:16px;font-weight:bold;cursor:pointer;
+ margin-top:22px;width:100%;
+}
+button.next:hover{background:#dce8ff}
+#feedback{margin-top:15px;font-weight:bold;line-height:1.5}
+#result{text-align:center;display:none}
+#result h2{font-size:28px}
+.footer{text-align:center;color:#b9c9e8;font-size:13px;margin-top:25px}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="flag">
+<span style="background:white"></span>
+<span style="background:#2455b5"></span>
+<span style="background:#e53948"></span>
+</div>
+
+<h1>🇷🇺 Государственные символы РФ</h1>
+<p class="subtitle">Интерактивная викторина о государственных символах Российской Федерации</p>
+
+<div id="quiz">
+<div class="info">
+ <b>Проверь свои знания!</b>
+
+ Всего 15 вопросов. Выбери один правильный ответ.
+ <div id="counter">Вопрос 1 из 15</div>
+ <div class="progress"><div class="bar" id="bar"></div></div>
+</div>
+
+<div class="question" id="question"></div>
+<div class="answers" id="answers"></div>
+<div id="feedback"></div>
+<button class="next" id="next" onclick="nextQuestion()" style="display:none">Следующий вопрос →</button>
+</div>
+
+<div id="result">
+<h2>Викторина завершена!</h2>
+<div style="font-size:55px" id="medal">🏆</div>
+<h2 id="score"></h2>
+<p id="message"></p>
+<button class="next" onclick="restart()">Пройти ещё раз ↻</button>
+</div>
+
+<div class="footer">Учебная викторина • Государственные символы Российской Федерации</div>
+</div>
+
+<script>
+const questions=[
+{q:"Как расположены полосы на государственном флаге России?",a:["Красная, синяя, белая","Белая, синяя, красная","Синяя, белая, красная","Белая, красная, синяя"],c:1},
+{q:"Сколько цветов имеет флаг Российской Федерации?",a:["Два","Четыре","Три","Пять"],c:2},
+{q:"Какой цвет находится в верхней части российского флага?",a:["Белый","Синий","Красный","Зелёный"],c:0},
+{q:"Какой цвет находится посередине российского флага?",a:["Красный","Синий","Белый","Жёлтый"],c:1},
+{q:"Как называется горизонтальное расположение полос на флаге России?",a:["Вертикальное","Диагональное","Горизонтальное","Круговое"],c:2},
+
+{q:"Какое животное изображено на государственном гербе России?",a:["Лев","Двуглавый орёл","Медведь","Сокол"],c:1},
+{q:"Сколько голов у орла на гербе России?",a:["Одна","Три","Две","Четыре"],c:2},
+{q:"Что находится над головами орла на гербе России?",a:["Корона","Звезда","Флаг","Солнце"],c:0},
+{q:"Что держит всадник на щите в центре герба?",a:["Меч","Копьё","Щит","Факел"],c:1},
+{q:"Какого цвета щит в центре государственного герба России?",a:["Синий","Зелёный","Красный","Бел
