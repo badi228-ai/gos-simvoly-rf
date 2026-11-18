@@ -3,53 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Государственные символы РФ</title>
+<title>Тест — Государственные символы РФ</title>
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;font-family:Arial,sans-serif;
- background:linear-gradient(135deg,#101d3b,#243f70);
- color:white;min-height:100vh;padding:25px 15px;
+ margin:0;padding:25px 15px;
+ font-family:Arial,sans-serif;color:white;
+ background:linear-gradient(135deg,#101d3b,#2457a0,#18366d);
+ min-height:100vh;
 }
 .container{
- max-width:750px;margin:auto;
- background:#ffffff12;padding:30px;
- border:1px solid #ffffff30;border-radius:20px;
- box-shadow:0 10px 40px #0005;
+ max-width:850px;margin:auto;padding:30px;
+ background:#ffffff13;border:1px solid #ffffff35;
+ border-radius:22px;box-shadow:0 12px 40px #0004;
 }
-.flag{display:flex;height:9px;border-radius:10px;overflow:hidden;margin-bottom:25px}
+.flag{display:flex;height:10px;border-radius:10px;overflow:hidden;margin-bottom:25px}
 .flag span{flex:1}
 h1{text-align:center;font-size:30px}
-.subtitle{text-align:center;color:#d5e1fa;line-height:1.6}
-.info{background:#ffffff12;padding:15px;border-radius:12px;margin:20px 0}
-.progress{height:9px;background:#ffffff30;border-radius:10px;margin:15px 0}
-.bar{height:100%;width:0;background:#fff;border-radius:10px;transition:.3s}
-.question{font-size:21px;font-weight:bold;margin:25px 0}
-.answers{display:grid;gap:12px}
-.answer{
- background:#ffffff12;border:1px solid #ffffff35;
- padding:15px;border-radius:12px;color:white;
- text-align:left;font-size:16px;cursor:pointer;
+.subtitle{text-align:center;color:#dce8ff;line-height:1.6}
+.intro{
+ background:#ffffff15;padding:20px;border-radius:14px;
+ margin:25px 0;line-height:1.7;
 }
-.answer:hover{background:#ffffff30}
-.answer:disabled{cursor:default;opacity:1}
-.correct{background:#187b48!important;border-color:#35d98b}
-.wrong{background:#a83245!important;border-color:#ff7185}
-button.next{
- background:white;color:#182e53;border:0;
- padding:14px 25px;border-radius:12px;
+.section{
+ margin-top:30px;padding:20px;
+ border-radius:15px;background:#ffffff0b;
+ border:1px solid #ffffff25;
+}
+.section-title{
+ font-size:20px;font-weight:bold;
+ border-bottom:1px solid #ffffff35;
+ padding-bottom:12px;margin-bottom:20px;
+}
+.question{
+ padding:18px;margin:15px 0;
+ background:#ffffff12;border-radius:13px;
+}
+.question-title{font-weight:bold;line-height:1.5;margin-bottom:15px}
+.number{color:#b9d8ff;margin-right:7px}
+.option{
+ display:flex;align-items:flex-start;gap:10px;
+ padding:12px;margin:7px 0;
+ border:1px solid #ffffff30;border-radius:10px;
+ cursor:pointer;line-height:1.4;
+}
+.option:hover{background:#ffffff20}
+.option input{margin-top:3px;accent-color:#8bbaff}
+button{
+ border:0;border-radius:12px;padding:16px;
  font-size:16px;font-weight:bold;cursor:pointer;
- margin-top:22px;width:100%;
 }
-button.next:hover{background:#dce8ff}
-#feedback{margin-top:15px;font-weight:bold;line-height:1.5}
-#result{text-align:center;display:none}
-#result h2{font-size:28px}
-.footer{text-align:center;color:#b9c9e8;font-size:13px;margin-top:25px}
+.submit{
+ width:100%;margin-top:25px;
+ background:white;color:#18345e;
+}
+.submit:hover{background:#dbe8ff}
+.reset{
+ background:#ffffff20;color:white;
+ border:1px solid #ffffff50;margin-top:15px;
+}
+#result{display:none;margin-top:30px}
+.result-card{
+ background:#ffffff17;padding:25px;
+ border-radius:15px;text-align:center;
+}
+.grade{font-size:65px;font-weight:bold;margin:15px}
+.result-detail{line-height:1.8}
+.review-item{
+ padding:16px;margin:12px 0;
+ background:#ffffff12;border-radius:12px;
+ line-height:1.6;
+}
+.good{border-left:5px solid #48dc94}
+.bad{border-left:5px solid #ff7485}
+.explanation{color:#d5e4ff;font-size:14px;margin-top:10px}
+footer{text-align:center;color:#c6d7f3;margin-top:30px;font-size:13px}
+.hidden{display:none}
+max-width:550px{
+ .container{padding:17px}
+ h1{font-size:24px}
+ .question{padding:13px}
+}
 </style>
 </head>
 <body>
-<div class="container">
+<main class="container">
+
 <div class="flag">
 <span style="background:white"></span>
 <span style="background:#2455b5"></span>
@@ -57,126 +96,371 @@ button.next:hover{background:#dce8ff}
 </div>
 
 <h1>🇷🇺 Государственные символы РФ</h1>
-<p class="subtitle">Интерактивная викторина о государственных символах Российской Федерации</p>
+<p class="subtitle">
+Проверочная работа по обществознанию
+</p>
 
-<div id="quiz">
-<div class="info">
- <b>Проверь свои знания!</b>
+<div class="intro">
+ <b>Тестирование знаний</b>
+ <p>
+Перед тобой тест из 15 вопросов по теме
+«Государственные символы Российской Федерации».
+Внимательно прочитай каждый вопрос и выбери один правильный ответ.
+ </p>
+ <p>
+ <b>Структура работы:</b>
 
- Всего 15 вопросов. Выбери один правильный ответ.
- <div id="counter">Вопрос 1 из 15</div>
- <div class="progress"><div class="bar" id="bar"></div></div>
+ 1–5 — Государственный флаг РФ.
+
+ 6–10 — Государственный герб РФ.
+
+ 11–15 — Государственный гимн РФ.
+ </p>
+ <p>
+ <b>Оценивание:</b>
+
+ 13–15 правильных ответов — оценка 5.
+
+ 10–12 правильных ответов — оценка 4.
+
+ 7–9 правильных ответов — оценка 3.
+
+ 0–6 правильных ответов — оценка 2.
+ </p>
+ <b>Всего: 15 баллов.</b>
 </div>
 
-<div class="question" id="question"></div>
-<div class="answers" id="answers"></div>
-<div id="feedback"></div>
-<button class="next" id="next" onclick="nextQuestion()" style="display:none">Следующий вопрос →</button>
+<form id="test">
+
+<div class="section">
+<div class="section-title">I. Государственный флаг Российской Федерации</div>
+<div id="part1"></div>
 </div>
 
-<div id="result">
-<h2>Викторина завершена!</h2>
-<div style="font-size:55px" id="medal">🏆</div>
-<h2 id="score"></h2>
-<p id="message"></p>
-<button class="next" onclick="restart()">Пройти ещё раз ↻</button>
+<div class="section">
+<div class="section-title">II. Государственный герб Российской Федерации</div>
+<div id="part2"></div>
 </div>
 
-<div class="footer">Учебная викторина • Государственные символы Российской Федерации</div>
+<div class="section">
+<div class="section-title">III. Государственный гимн Российской Федерации</div>
+<div id="part3"></div>
 </div>
+
+<button class="submit" type="submit">Завершить тест и узнать результат</button>
+</form>
+
+<section id="result">
+<div class="result-card">
+<h2>Результаты тестирования</h2>
+<div class="grade" id="grade">5</div>
+<h2 id="gradeText"></h2>
+<div class="result-detail" id="details"></div>
+</div>
+<h2>Разбор ответов</h2>
+<div id="review"></div>
+<button class="submit" onclick="restart()">Пройти тест заново</button>
+</section>
+
+<footer>
+Учебная работа • Обществознание • Государственные символы РФ
+</footer>
+</main>
 
 <script>
 const questions=[
-{q:"Как расположены полосы на государственном флаге России?",a:["Красная, синяя, белая","Белая, синяя, красная","Синяя, белая, красная","Белая, красная, синяя"],c:1},
-{q:"Сколько цветов имеет флаг Российской Федерации?",a:["Два","Четыре","Три","Пять"],c:2},
-{q:"Какой цвет находится в верхней части российского флага?",a:["Белый","Синий","Красный","Зелёный"],c:0},
-{q:"Какой цвет находится посередине российского флага?",a:["Красный","Синий","Белый","Жёлтый"],c:1},
-{q:"Как называется горизонтальное расположение полос на флаге России?",a:["Вертикальное","Диагональное","Горизонтальное","Круговое"],c:2},
 
-{q:"Какое животное изображено на государственном гербе России?",a:["Лев","Двуглавый орёл","Медведь","Сокол"],c:1},
-{q:"Сколько голов у орла на гербе России?",a:["Одна","Три","Две","Четыре"],c:2},
-{q:"Что находится над головами орла на гербе России?",a:["Корона","Звезда","Флаг","Солнце"],c:0},
-{q:"Что держит всадник на щите в центре герба?",a:["Меч","Копьё","Щит","Факел"],c:1},
-{q:"Какого цвета щит в центре государственного герба России?",a:["Синий","Зелёный","Красный","Белый"],c:2},
+{
+part:1,
+q:"Какое утверждение наиболее точно характеризует расположение цветов на Государственном флаге РФ?",
+a:[
+"Три вертикальные полосы одинаковой ширины",
+"Три горизонтальные полосы одинаковой ширины: белая, синяя и красная",
+"Три горизонтальные полосы: синяя, белая и красная",
+"Три горизонтальные полосы разной ширины"
+],
+c:1,
+e:"Государственный флаг России представляет собой прямоугольное полотнище из трёх равновеликих горизонтальных полос: белой, синей и красной."
+},
 
-{q:"Как называется государственный гимн России?",a:["Патриотическая песня","Государственный гимн Российской Федерации","Марш России","Песня о Родине"],c:1},
-{q:"Кто написал музыку современного гимна России?",a:["Пётр Чайковский","Михаил Глинка","Александр Александров","Сергей Рахманинов"],c:2},
-{q:"Кто является автором слов современного гимна России?",a:["Сергей Михалков","Александр Пушкин","Михаил Лермонтов","Фёдор Тютчев"],c:0},
-{q:"В каких случаях исполняется государственный гимн?",a:["Только на школьных уроках","На важных государственных мероприятиях и торжествах","Только на спортивных тренировках","Только дома"],c:1},
-{q:"Как нужно вести себя при официальном исполнении гимна России?",a:["Разговаривать","Сидеть и заниматься своими делами","Встать и проявлять уважение","Покинуть помещение"],c:2}
+{
+part:1,
+q:"Каково официальное соотношение ширины и длины Государственного флага РФ?",
+a:[
+"1:2",
+"3:4",
+"2:3",
+"1:3"
+],
+c:2,
+e:"Отношение ширины флага к его длине составляет 2:3."
+},
+
+{
+part:1,
+q:"Какой нормативный правовой акт устанавливает официальный статус и правила использования Государственного флага РФ?",
+a:[
+"Конституция РФ, статья 1",
+"Федеральный конституционный закон от 25 декабря 2000 года № 1-ФКЗ",
+"Федеральный закон о гражданстве РФ",
+"Указ об образовании Российской Федерации"
+],
+c:1,
+e:"Основным специальным нормативным актом является Федеральный конституционный закон от 25 декабря 2000 года № 1-ФКЗ «О Государственном флаге Российской Федерации»."
+},
+
+{
+part:1,
+q:"Какое значение имеет Государственный флаг в системе государственных символов?",
+a:[
+"Обозначает только принадлежность территории к определённому региону",
+"Является исключительно военным знаком",
+"Выступает официальным символом государства и его суверенитета",
+"Используется только во время спортивных соревнований"
+],
+c:2,
+e:"Государственный флаг является официальным государственным символом и связан с представлением о суверенитете страны."
+},
+
+{
+part:1,
+q:"Какое из перечисленных утверждений соответствует установленному порядку использования Государственного флага?",
+a:[
+"Его использование возможно исключительно государственными служащими",
+"Он может использоваться гражданами, общественными объединениями и организациями при соблюдении установленных требований",
+"Его разрешено поднимать только в дни государственных праздников",
+"Его использование запрещено за пределами государственных учреждений"
+],
+c:1,
+e:"Закон предусматривает не только официальное использование флага государственными органами, но и его использование гражданами, организациями и общественными объединениями при соблюдении требований закона."
+},
+
+{
+part:2,
+q:"Какой основной элемент изображён в центре Государственного герба Российской Федерации?",
+a:[
+"Золотой лев с короной",
+"Золотой двуглавый орёл",
+"Серебряный сокол",
+"Золотой медведь"
+],
+c:1,
+e:"Центральным элементом герба является золотой двуглавый орёл на красном геральдическом щите."
+},
+
+{
+part:2,
+q:"Какие предметы находятся в лапах двуглавого орла на Государственном гербе РФ?",
+a:[
+"Меч и щит",
+"Лук и стрелы",
+"Скипетр и держава",
+"Корона и меч"
+],
+c:2,
+e:"В правой лапе орла находится скипетр, а в левой — держава. Они относятся к традиционным символам государственной власти."
+},
+
+{
+part:2,
+q:"Сколько корон изображено над двуглавым орлом на Государственном гербе РФ?",
+a:[
+"Одна",
+"Две",
+"Три",
+"Четыре"
+],
+c:2,
+e:"Над орлом находятся две малые короны и одна большая корона, соединённые лентой."
+},
+
+{
+part:2,
+q:"Что изображено на щите, расположенном на груди двуглавого орла?",
+a:[
+"Всадник на коне, поражающий копьём дракона",
+"Воин с мечом на фоне крепости",
+"Лев, охраняющий корону",
+"Орёл с распростёртыми крыльями"
+],
+c:0,
+e:"На красном щите изображён серебряный всадник в синем плаще на серебряном коне, поражающий копьём чёрного дракона."
+},
+
+{
+part:2,
+q:"Какой нормативный акт устанавливает описание и порядок использования Государственного герба РФ?",
+a:[
+"Федеральный конституционный закон от 25 декабря 2000 года № 2-ФКЗ",
+"Федеральный закон о выборах",
+"Указ о государственном языке","Закон о государственной границе"
+],
+c:0,
+e:"Государственный герб регулируется Федеральным конституционным законом от 25 декабря 2000 года № 2-ФКЗ «О Государственном гербе Российской Федерации»."
+},
+
+{
+part:3,
+q:"Кто является автором музыки современного Государственного гимна РФ?",
+a:[
+"Пётр Чайковский",
+"Александр Александров",
+"Михаил Глинка",
+"Сергей Рахманинов"
+],
+c:1,
+e:"Музыку Государственного гимна РФ написал композитор Александр Васильевич Александров."
+},
+
+{
+part:3,
+q:"Кто является автором текста современного Государственного гимна РФ?",
+a:[
+"Сергей Михалков",
+"Александр Пушкин",
+"Константин Симонов",
+"Михаил Лермонтов"
+],
+c:0,
+e:"Текст современного гимна написал Сергей Владимирович Михалков."
+},
+
+{
+part:3,
+q:"В каком году был принят Федеральный конституционный закон «О Государственном гимне Российской Федерации»?",
+a:[
+"1991 году",
+"1993 году",
+"2000 году",
+"2008 году"
+],
+c:2,
+e:"Федеральный конституционный закон № 3-ФКЗ «О Государственном гимне Российской Федерации» был принят 25 декабря 2000 года."
+},
+
+{
+part:3,
+q:"Какие формы исполнения Государственного гимна РФ допускаются законодательством?",
+a:[
+"Только хоровое исполнение",
+"Только исполнение под музыкальную запись",
+"Оркестровая, хоровая, оркестрово-хоровая и другие вокальные и инструментальные версии",
+"Только исполнение солистом"
+],
+c:2,
+e:"Закон предусматривает различные формы исполнения гимна: оркестровую, хоровую, оркестрово-хоровую и другие вокальные и инструментальные версии."
+},
+
+{
+part:3,
+q:"Какое поведение соответствует уважительному отношению к Государственному гимну РФ при его официальном исполнении?",
+a:[
+"Продолжать разговаривать, если гимн исполняется в помещении",
+"Встать, а военнослужащим соблюдать установленный воинский ритуал",
+"Обязательно покинуть помещение",
+"Продолжать заниматься своими делами"
+],
+c:1,
+e:"При официальном исполнении гимна присутствующие встают. Военнослужащие соблюдают установленный воинский ритуал."
+}
+
 ];
 
-let current=0,score=0,answered=false;
+function render(){
+ const containers=[
+ document.getElementById("part1"),
+ document.getElementById("part2"),
+ document.getElementById("part3")
+ ];
 
-function showQuestion(){
- answered=false;
- const q=questions[current];
- document.getElementById("counter").textContent=`Вопрос ${current+1} из ${questions.length}`;
- document.getElementById("bar").style.width=(current/questions.length*100)+"%";
- document.getElementById("question").textContent=q.q;
- document.getElementById("feedback").textContent="";
- document.getElementById("next").style.display="none";
- const box=document.getElementById("answers");
- box.innerHTML="";
- q.a.forEach((answer,i)=>{
-  const btn=document.createElement("button");
-  btn.className="answer";
-  btn.textContent=(i+1)+". "+answer;
-  btn.onclick=()=>choose(i);
-  box.appendChild(btn);
+ questions.forEach((q,index)=>{
+  const div=document.createElement("div");
+  div.className="question";
+
+  const title=document.createElement("div");
+  title.className="question-title";
+  title.innerHTML='<span class="number">Вопрос '+(index+1)+'.</span>';
+  title.appendChild(document.createTextNode(q.q));
+  div.appendChild(title);
+
+  q.a.forEach((answer,i)=>{
+   const label=document.createElement("label");
+   label.className="option";
+
+   const radio=document.createElement("input");
+   radio.type="radio";
+   radio.name="q"+index;
+   radio.value=i;
+   radio.required=(i===0);
+
+   const span=document.createElement("span");
+   span.textContent=answer;
+
+   label.appendChild(radio);
+   label.appendChild(span);
+   div.appendChild(label);
+  });
+
+  containers[q.part-1].appendChild(div);
  });
 }
 
-function choose(i){
- if(answered)return;
- answered=true;
- const q=questions[current];
- const buttons=document.querySelectorAll(".answer");
- buttons.forEach((btn,index)=>{
-  btn.disabled=true;
-  if(index===q.c)btn.classList.add("correct");
-  if(index===i && i!==q.c)btn.classList.add("wrong");
+document.getElementById("test").addEventListener("submit",function(event){
+ event.preventDefault();
+
+ let score=0;
+ const review=document.getElementById("review");
+ review.innerHTML="";
+
+ questions.forEach((q,index)=>{
+  const chosen=document.querySelector('input[name="q'+index+'"]:checked');
+  const correct=Number(chosen.value)===q.c;
+  if(correct)score++;
+
+  const item=document.createElement("div");
+  item.className="review-item "+(correct?"good":"bad");
+
+  const heading=document.createElement("b");
+  heading.textContent="Вопрос "+(index+1)+": "+(correct?"Правильно":"Неправильно");
+
+  const answer=document.createElement("p");
+  answer.textContent="Твой ответ: "+q.a[Number(chosen.value)];
+
+  const right=document.createElement("p");
+  right.textContent="Правильный ответ: "+q.a[q.c];
+
+  const explanation=document.createElement("div");
+  explanation.className="explanation";
+  explanation.textContent=q.e;
+
+  item.append(heading,answer,right,explanation);
+  review.appendChild(item);
  });
- if(i===q.c){
-  score++;
-  document.getElementById("feedback").textContent="✓ Правильно! Молодец!";
-  document.getElementById("feedback").style.color="#65efa7";
- }else{
-  document.getElementById("feedback").textContent="✗ Неправильно. Правильный ответ: "+q.a[q.c];
-  document.getElementById("feedback").style.color="#ff9ba9";
- }
- document.getElementById("next").style.display="block";
- document.getElementById("next").textContent=current===14?"Посмотреть результат":"Следующий вопрос →";
-}
 
-function nextQuestion(){
- if(!answered)return;
- current++;
- if(current<questions.length)showQuestion();
- else finish();
-}
+ let grade=score>=13?5:score>=10?4:score>=7?3:2;
+ let text=grade===5?"Отлично! Прекрасное знание темы.":
+ grade===4?"Хороший результат!":
+ grade===3?"Удовлетворительный результат. Стоит повторить материал.":
+ "Необходимо повторить тему и изучить основные понятия.";
 
-function finish(){
- document.getElementById("quiz").style.display="none";
+ document.getElementById("grade").textContent=grade;
+ document.getElementById("gradeText").textContent=text;
+ document.getElementById("details").textContent=
+ "Правильных ответов: "+score+" из 15. Набрано "+score+" баллов.";
+
+ document.getElementById("test").style.display="none";
  document.getElementById("result").style.display="block";
- document.getElementById("bar").style.width="100%";
- document.getElementById("score").textContent=`Твой результат: ${score} из 15`;
- let message,medal;
- if(score>=13){message="Отличный результат! Ты прекрасно знаешь государственные символы России!";medal="🏆";}
- else if(score>=9){message="Хороший результат! Ты хорошо знаешь символы нашей страны!";medal="🥇";}
- else if(score>=5){message="Неплохо! Но некоторые вопросы стоит повторить.";medal="📚";}
- else{message="Попробуй ещё раз! Ты обязательно улучшишь свой результат.";medal="🇷🇺";}
- document.getElementById("message").textContent=message;
- document.getElementById("medal").textContent=medal;
-}
+ document.getElementById("result").scrollIntoView({behavior:"smooth"});
+});
 
 function restart(){
- current=0;score=0;
+ document.getElementById("test").reset();
+ document.getElementById("test").style.display="block";
  document.getElementById("result").style.display="none";
- document.getElementById("quiz").style.display="block";
- showQuestion();
+ window.scrollTo({top:0,behavior:"smooth"});
 }
-showQuestion();
+
+render();
 </script>
 </body>
 </html>
